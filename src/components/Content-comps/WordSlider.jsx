@@ -28,12 +28,12 @@ export default function WordSlider() {
   return (
     <Box
       sx={{
-        width: '100%', 
+        width: '100%',
         maxWidth: 390,
         bgcolor: "#09090D",
         borderRadius: 2,
-        padding: 2, 
-        marginY: 2, 
+        padding: 2,
+        marginY: 2,
       }}
       className="slider"
     >
@@ -50,9 +50,13 @@ export default function WordSlider() {
         marks={marks}
         valueLabelDisplay="on"
         sx={{
-            "& .MuiSlider-valueLabel": {
-              color: "white",
-            },
+          "& .MuiSlider-track": {
+            background: 'linear-gradient(to right, #523FD7, #FF7DFF)', // Set your gradient colors
+          },
+          "& .MuiSlider-markLabel": {
+            color: "white",
+            marginTop: "-10px", // Adjust as needed
+          },
         }}
       />
     </Box>

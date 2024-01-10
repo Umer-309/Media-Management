@@ -1,6 +1,10 @@
 *, *::after,*::before{
     box-sizing: border-box;
 }
+body{
+    margin: 0;
+    padding: 0;
+}
 footer {
     display: flex;
     justify-content: space-between;
@@ -10,6 +14,9 @@ footer {
     right: 0;
     padding: 20px 35px;
     background: #09090D;
+}
+.content{
+    padding: 20px 10px;
 }
 .btn {
     padding: 8px 33px;

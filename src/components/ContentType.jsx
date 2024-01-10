@@ -95,9 +95,10 @@ const options = {
 
 export default function ContentType() {
   const [type, setType] = useState();
-  
+  const [activeChip, setActiveChip] = useState(null);
 
-  
+
+
   useEffect(() => {
     // This will log the updated value of type whenever it changes
     console.log(type);
@@ -105,6 +106,7 @@ export default function ContentType() {
 
   const handleClick = (contentType) => {
     setType(contentType);
+    setActiveChip(contentType === activeChip ? null : contentType);
   };
 
   const defaultProps = {
@@ -112,23 +114,34 @@ export default function ContentType() {
     getOptionLabel: (option) => option, // Function to get the label for each option
   };
 
+  const activeStyles = {
+    color: "#fff",
+    backgroundColor: "#523FD7"
+  }
+
   return (
-    <section>
+    <section className="content">
       <h2>Content Type</h2>
       <p>Choose that best fit your needs</p>
       <hr />
       <h3>What type of content are you creating?</h3>
-      <Stack direction="row" spacing={1}>
-        {contentTypes.map((contentType, index) => (
-          <Chip
-            key={index}
-            name={contentType}
-            label={contentType}
-            variant="outlined"
-            onClick={() => handleClick(contentType)}
-          />
-        ))}
-      </Stack>
+      <Stack direction="row" spacing={0.5} flexWrap="wrap">
+      {contentTypes.map((contentType, index) => (
+        <Chip
+          key={index}
+          label={contentType}
+          variant="outlined"
+          style={{
+            marginRight: '8px',
+            marginBottom: '8px',
+            fontSize:"14px",
+            padding:"15px ",
+            ...((contentType === activeChip) && activeStyles),
+          }}
+          onClick={() => handleClick(contentType)}
+        />
+      ))}
+    </Stack>
       <hr />
       {type && (
         <>
@@ -145,7 +158,7 @@ export default function ContentType() {
           </Stack>
         </>
       )}
-       <WordSlider />
+      <WordSlider />
     </section>
   );
 }
