@@ -4,6 +4,10 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #12111a;
+}
+.appbar{
+    background-color: #09090D !important;
 }
 footer {
     display: flex;

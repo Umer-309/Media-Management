@@ -118,9 +118,12 @@ export default function ContentType() {
     color: "#fff",
     backgroundColor: "#523FD7"
   }
+  const styles = {
+    color: "#fff"
+  }
 
   return (
-    <section className="content">
+    <section className="content" style={styles}>
       <h2>Content Type</h2>
       <p>Choose that best fit your needs</p>
       <hr />
@@ -136,6 +139,7 @@ export default function ContentType() {
             marginBottom: '8px',
             fontSize:"14px",
             padding:"15px ",
+            color:"#fff",
             ...((contentType === activeChip) && activeStyles),
           }}
           onClick={() => handleClick(contentType)}
