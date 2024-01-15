@@ -152,13 +152,35 @@ export default function ContentType() {
           <h3>Which kind of "{type}" content do you want to discuss?</h3>
           <Stack spacing={1} sx={{ width: 300 }}>
             <Autocomplete
-              {...defaultProps}
-              id="include-input-in-list"
-              includeInputInList
-              renderInput={(params) => (
-                <TextField {...params} label="Search" variant="standard" />
-              )}
-            />
+             {...defaultProps}
+             id="include-input-in-list"
+             includeInputInList
+             renderInput={(params) => (
+                 <TextField
+                     {...params}
+                     label="Search"
+                     variant="standard"
+                     sx={{
+                         backgroundColor: 'lightgray',  // Background color
+                         '&:focus': {
+                             borderColor: 'green',  // Border color on focus for the entire Autocomplete
+                             boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',  // Focus color
+                         },
+                         '& .MuiInputLabel-root': {
+                             color: 'gray',  // Placeholder text color
+                         },
+                         '& .MuiInputBase-input': {
+                             color: 'black',  // Input text color
+                         },
+                         '& .MuiInputBase-input::placeholder': {
+                             color: 'gray',  // Placeholder text color
+                         },
+                         borderRadius: "5px",
+                         textIndent: "10px"
+                     }}
+                 />
+             )}
+         />
           </Stack>
         </>
       )}
